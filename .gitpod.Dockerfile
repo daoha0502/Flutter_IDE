@@ -25,12 +25,11 @@ RUN set -ex; \
 RUN set -ex; \
     mkdir ~/development; \
     cd ~/development; \
-    git clone --depth 1 https://github.com/flutter/flutter.git -b stable --no-single-branch
+    git clone https://github.com/flutter/flutter.git -b stable --depth 1
 
 ENV PATH="$PATH:/home/gitpod/development/flutter/bin"
 
 RUN set -ex; \
-    flutter channel beta; \
+    flutter channel stable; \
     flutter upgrade; \
-    flutter config --enable-web; \
     flutter precache
